@@ -1,0 +1,200 @@
+vetrivenki@vetrivenki-Lenovo:~$ minikube start
+😄  minikube v1.28.0 on Ubuntu 22.04
+✨  Using the docker driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+🔄  Restarting existing docker container for "minikube" ...
+🐳  Preparing Kubernetes v1.25.3 on Docker 20.10.20 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: default-storageclass, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube addons list
+|-----------------------------|----------|--------------|--------------------------------|
+|         ADDON NAME          | PROFILE  |    STATUS    |           MAINTAINER           |
+|-----------------------------|----------|--------------|--------------------------------|
+| ambassador                  | minikube | disabled     | 3rd party (Ambassador)         |
+| auto-pause                  | minikube | disabled     | Google                         |
+| cloud-spanner               | minikube | disabled     | Google                         |
+| csi-hostpath-driver         | minikube | disabled     | Kubernetes                     |
+| dashboard                   | minikube | disabled     | Kubernetes                     |
+| default-storageclass        | minikube | enabled ✅   | Kubernetes                     |
+| efk                         | minikube | disabled     | 3rd party (Elastic)            |
+| freshpod                    | minikube | disabled     | Google                         |
+| gcp-auth                    | minikube | disabled     | Google                         |
+| gvisor                      | minikube | disabled     | Google                         |
+| headlamp                    | minikube | disabled     | 3rd party (kinvolk.io)         |
+| helm-tiller                 | minikube | disabled     | 3rd party (Helm)               |
+| inaccel                     | minikube | disabled     | 3rd party (InAccel             |
+|                             |          |              | [info@inaccel.com])            |
+| ingress                     | minikube | disabled     | Kubernetes                     |
+| ingress-dns                 | minikube | disabled     | Google                         |
+| istio                       | minikube | disabled     | 3rd party (Istio)              |
+| istio-provisioner           | minikube | disabled     | 3rd party (Istio)              |
+| kong                        | minikube | disabled     | 3rd party (Kong HQ)            |
+| kubevirt                    | minikube | disabled     | 3rd party (KubeVirt)           |
+| logviewer                   | minikube | disabled     | 3rd party (unknown)            |
+| metallb                     | minikube | disabled     | 3rd party (MetalLB)            |
+| metrics-server              | minikube | disabled     | Kubernetes                     |
+| nvidia-driver-installer     | minikube | disabled     | Google                         |
+| nvidia-gpu-device-plugin    | minikube | disabled     | 3rd party (Nvidia)             |
+| olm                         | minikube | disabled     | 3rd party (Operator Framework) |
+| pod-security-policy         | minikube | disabled     | 3rd party (unknown)            |
+| portainer                   | minikube | disabled     | 3rd party (Portainer.io)       |
+| registry                    | minikube | disabled     | Google                         |
+| registry-aliases            | minikube | disabled     | 3rd party (unknown)            |
+| registry-creds              | minikube | disabled     | 3rd party (UPMC Enterprises)   |
+| storage-provisioner         | minikube | enabled ✅   | Google                         |
+| storage-provisioner-gluster | minikube | disabled     | 3rd party (Gluster)            |
+| volumesnapshots             | minikube | disabled     | Kubernetes                     |
+|-----------------------------|----------|--------------|--------------------------------|
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube addons enable ingress
+💡  ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
+You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
+    ▪ Using image k8s.gcr.io/ingress-nginx/controller:v1.2.1
+    ▪ Using image k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+    ▪ Using image k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
+🔎  Verifying ingress addon...
+🌟  The 'ingress' addon is enabled
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube addons list
+|-----------------------------|----------|--------------|--------------------------------|
+|         ADDON NAME          | PROFILE  |    STATUS    |           MAINTAINER           |
+|-----------------------------|----------|--------------|--------------------------------|
+| ambassador                  | minikube | disabled     | 3rd party (Ambassador)         |
+| auto-pause                  | minikube | disabled     | Google                         |
+| cloud-spanner               | minikube | disabled     | Google                         |
+| csi-hostpath-driver         | minikube | disabled     | Kubernetes                     |
+| dashboard                   | minikube | disabled     | Kubernetes                     |
+| default-storageclass        | minikube | enabled ✅   | Kubernetes                     |
+| efk                         | minikube | disabled     | 3rd party (Elastic)            |
+| freshpod                    | minikube | disabled     | Google                         |
+| gcp-auth                    | minikube | disabled     | Google                         |
+| gvisor                      | minikube | disabled     | Google                         |
+| headlamp                    | minikube | disabled     | 3rd party (kinvolk.io)         |
+| helm-tiller                 | minikube | disabled     | 3rd party (Helm)               |
+| inaccel                     | minikube | disabled     | 3rd party (InAccel             |
+|                             |          |              | [info@inaccel.com])            |
+| ingress                     | minikube | enabled ✅   | Kubernetes                     |
+| ingress-dns                 | minikube | disabled     | Google                         |
+| istio                       | minikube | disabled     | 3rd party (Istio)              |
+| istio-provisioner           | minikube | disabled     | 3rd party (Istio)              |
+| kong                        | minikube | disabled     | 3rd party (Kong HQ)            |
+| kubevirt                    | minikube | disabled     | 3rd party (KubeVirt)           |
+| logviewer                   | minikube | disabled     | 3rd party (unknown)            |
+| metallb                     | minikube | disabled     | 3rd party (MetalLB)            |
+| metrics-server              | minikube | disabled     | Kubernetes                     |
+| nvidia-driver-installer     | minikube | disabled     | Google                         |
+| nvidia-gpu-device-plugin    | minikube | disabled     | 3rd party (Nvidia)             |
+| olm                         | minikube | disabled     | 3rd party (Operator Framework) |
+| pod-security-policy         | minikube | disabled     | 3rd party (unknown)            |
+| portainer                   | minikube | disabled     | 3rd party (Portainer.io)       |
+| registry                    | minikube | disabled     | Google                         |
+| registry-aliases            | minikube | disabled     | 3rd party (unknown)            |
+| registry-creds              | minikube | disabled     | 3rd party (UPMC Enterprises)   |
+| storage-provisioner         | minikube | enabled ✅   | Google                         |
+| storage-provisioner-gluster | minikube | disabled     | 3rd party (Gluster)            |
+| volumesnapshots             | minikube | disabled     | Kubernetes                     |
+|-----------------------------|----------|--------------|--------------------------------|
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get pods -kube-system
+error: when paths, URLs, or stdin is provided as input, you may not specify resource arguments as well
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get pods -n kube-system
+NAME                               READY   STATUS    RESTARTS        AGE
+coredns-565d847f94-tblvf           1/1     Running   2 (5m19s ago)   10d
+etcd-minikube                      1/1     Running   2 (6m14s ago)   10d
+kube-apiserver-minikube            1/1     Running   2 (5m19s ago)   10d
+kube-controller-manager-minikube   1/1     Running   2 (6m14s ago)   10d
+kube-proxy-xh5bv                   1/1     Running   2 (6m14s ago)   10d
+kube-scheduler-minikube            1/1     Running   2 (5m19s ago)   10d
+storage-provisioner                1/1     Running   4 (4m32s ago)   10d
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get pods
+NAME                              READY   STATUS    RESTARTS        AGE
+hello-minikube1-c4bdfc98f-jqgvn   1/1     Running   2 (5m47s ago)   10d
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+deployment.apps/web created
+
+vetrivenki@vetrivenki-Lenovo:~$ kubect get all
+kubect: command not found
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get all
+NAME                                  READY   STATUS    RESTARTS        AGE
+pod/hello-minikube1-c4bdfc98f-jqgvn   1/1     Running   2 (7m23s ago)   10d
+pod/web-84fb9498c7-nv979              1/1     Running   0               12s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+service/hello-minikube1   LoadBalancer   10.108.131.46   192.168.59.101   8080:32271/TCP   10d
+service/kubernetes        ClusterIP      10.96.0.1       <none>           443/TCP          10d
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hello-minikube1   1/1     1            1           10d
+deployment.apps/web               1/1     1            1           12s
+
+NAME                                        DESIRED   CURRENT   READY   AGE
+replicaset.apps/hello-minikube1-c4bdfc98f   1         1         1       10d
+replicaset.apps/web-84fb9498c7              1         1         1       12s
+
+vetrivenki@vetrivenki-Lenovo:~$ 
+kubectl expose deployment web --type=ClusterIP --port=8080
+service/web exposed
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get all
+NAME                                  READY   STATUS    RESTARTS        AGE
+pod/hello-minikube1-c4bdfc98f-jqgvn   1/1     Running   2 (8m12s ago)   10d
+pod/web-84fb9498c7-nv979              1/1     Running   0               61s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+service/hello-minikube1   LoadBalancer   10.108.131.46   192.168.59.101   8080:32271/TCP   10d
+service/kubernetes        ClusterIP      10.96.0.1       <none>           443/TCP          10d
+service/web               ClusterIP      10.101.37.106   <none>           8080/TCP         17s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hello-minikube1   1/1     1            1           10d
+deployment.apps/web               1/1     1            1           61s
+
+NAME                                        DESIRED   CURRENT   READY   AGE
+replicaset.apps/hello-minikube1-c4bdfc98f   1         1         1       10d
+replicaset.apps/web-84fb9498c7              1         1         1       61s
+vetrivenki@vetrivenki-Lenovo:~$kubectl get service web
+NAME   TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+web    ClusterIP   10.101.37.106   <none>        8080/TCP   47s
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube service web --url
+😿  service default/web has no node port
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl expose deployment web --type=NodePort --port=8080
+Error from server (AlreadyExists): services "web" already exists
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl delete service web
+service "web" deleted
+
+vetrivenki@vetrivenki-Lenovo:~$ kubectl expose deployment web --type=NodePort --port=8080
+service/web exposed
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube service web --url
+http://192.168.49.2:31875
+
+vetrivenki@vetrivenki-Lenovo:~$ minikube service --all
+|-----------|-----------------|-------------|---------------------------|
+| NAMESPACE |      NAME       | TARGET PORT |            URL            |
+|-----------|-----------------|-------------|---------------------------|
+| default   | hello-minikube1 |        8080 | http://192.168.49.2:32271 |
+|-----------|-----------------|-------------|---------------------------|
+|-----------|------------|-------------|--------------|
+| NAMESPACE |    NAME    | TARGET PORT |     URL      |
+|-----------|------------|-------------|--------------|
+| default   | kubernetes |             | No node port |
+|-----------|------------|-------------|--------------|
+😿  service default/kubernetes has no node port
+|-----------|------|-------------|--------------|
+| NAMESPACE | NAME | TARGET PORT |     URL      |
+|-----------|------|-------------|--------------|
+| default   | web  |             | No node port |
+|-----------|------|-------------|--------------|
+😿  service default/web has no node port
+🎉  Opening service default/hello-minikube1 in default browser...

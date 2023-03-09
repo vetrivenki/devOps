@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-01-18T18:14:37Z"
+  generation: 1
+  labels:
+    app: hello-minikube1
+  name: hello-minikube1
+  namespace: default
+  resourceVersion: "645"
+  uid: 75fb449d-8b0c-4a2b-b8f6-2927fd17986a
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: hello-minikube1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-minikube1
+    spec:
+      containers:
+      - image: k8s.gcr.io/echoserver:1.4
+        imagePullPolicy: IfNotPresent
+        name: echoserver
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-01-18T18:15:07Z"
+    lastUpdateTime: "2023-01-18T18:15:07Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-01-18T18:14:37Z"
+    lastUpdateTime: "2023-01-18T18:15:07Z"
+    message: ReplicaSet "hello-minikube1-c4bdfc98f" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

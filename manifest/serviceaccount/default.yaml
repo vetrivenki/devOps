@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2023-01-18T18:08:54Z"
+  name: default
+  namespace: default
+  resourceVersion: "320"
+  uid: a0683aa4-e92f-478a-a303-8a0ba8f865a9

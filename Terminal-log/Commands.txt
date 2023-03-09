@@ -1,0 +1,35 @@
+Minikube NodePort
+-----------------
+
+ minikube start
+ 
+ 
+ 
+ kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+ 
+ kubectl get all
+ kubectl get service web
+ 
+ kubectl delete service web
+ kubectl expose deployment web --type=NodePort --port=8080
+ minikube service web --url
+
+Minikube CulsterIP
+------------------
+
+minikube start
+ 
+minikube addons list
+minikube addons enable ingress
+minikube addons list
+
+kubectl get pods -n kube-system
+kubectl get pods
+ 
+ kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
+	or
+ kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0 --type=CulsterIP --port=8080
+ 
+ kubectl delete service web
+ 
+ minikube service web --url

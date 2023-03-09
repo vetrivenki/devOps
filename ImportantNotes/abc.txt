@@ -1,0 +1,13 @@
+total 436
+-rw-rw-r-- 1 vetrivenki vetrivenki 185153 Jan 18 22:31 Kubernetes.odt
+-rw-rw-r-- 1 vetrivenki vetrivenki  36599 Jan 19 11:22 Unix.odt
+-rwxrwxr-x 1 vetrivenki vetrivenki  26006 Jan 20 14:20 Unix.docx
+-rwxrwxr-x 1 vetrivenki vetrivenki 167504 Jan 20 14:20 Kubernetes.docx
+-rwxrwxr-x 1 vetrivenki vetrivenki  13636 Jan 27 23:34 Ubuntu.docx
+-rw-rw-r-- 1 vetrivenki vetrivenki    162 Jan 27 23:34 ~$Ubuntu.docx
+-rw-rw-r-- 1 vetrivenki vetrivenki    573 Jan 28 06:49 Pending.txt
+-rw-rw-r-- 1 vetrivenki vetrivenki      0 Jan 29 07:53 abc.txt
+🤷  Profile "minikube" not found. Run "minikube profile list" to view all profiles.
+👉  To start a cluster, run: "minikube start"
+[H[2J[3J🤷  Profile "minikube" not found. Run "minikube profile list" to view all profiles.
+👉  To start a cluster, run: "minikube start"

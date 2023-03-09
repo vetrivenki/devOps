@@ -1,0 +1,155 @@
+
+
+vetrivenki@vetrivenki-Lenovo:~$ kubect get deployments
+kubect: command not found
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get deployments
+NAME              READY   UP-TO-DATE   AVAILABLE   AGE
+hello-minikube1   1/1     1            1           10d
+web               1/1     1            1           28m
+vetrivenki@vetrivenki-Lenovo:~$ kubectl describe deployment web
+Name:                   web
+Namespace:              default
+CreationTimestamp:      Sun, 29 Jan 2023 11:01:50 -0600
+Labels:                 app=web
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=web
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=web
+  Containers:
+   hello-app:
+    Image:        gcr.io/google-samples/hello-app:1.0
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   web-84fb9498c7 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  29m   deployment-controller  Scaled up replica set web-84fb9498c7 to 1
+vetrivenki@vetrivenki-Lenovo:~$ kubect get deployment web -o yaml
+kubect: command not found
+vetrivenki@vetrivenki-Lenovo:~$ kubectl get deployment web -o yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-01-29T17:01:50Z"
+  generation: 1
+  labels:
+    app: web
+  name: web
+  namespace: default
+  resourceVersion: "34131"
+  uid: 22108155-8d96-4216-a6a9-9d488cec967f
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:1.0
+        imagePullPolicy: IfNotPresent
+        name: hello-app
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-01-29T17:01:57Z"
+    lastUpdateTime: "2023-01-29T17:01:57Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-01-29T17:01:50Z"
+    lastUpdateTime: "2023-01-29T17:01:57Z"
+    message: ReplicaSet "web-84fb9498c7" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
+vetrivenki@vetrivenki-Lenovo:~$pwe
+Command 'pwe' not found, did you mean:
+  command 'wpe' from deb xwpe (1.5.30a-3)
+  command 'pwd' from deb coreutils (8.32-4.1ubuntu1)
+  command 'we' from deb xwpe (1.5.30a-3)
+  command 'pee' from deb moreutils (0.66-1)
+  command 'xwe' from deb xwpe (1.5.30a-3)
+Try: sudo apt install <deb name>
+vetrivenki@vetrivenki-Lenovo:~$ pwd
+/home/vetrivenki
+vetrivenki@vetrivenki-Lenovo:~$ cd  Venkat/
+vetrivenki@vetrivenki-Lenovo:~/Venkat$ ls -tlr
+total 16
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan  3 06:34 Azure-API
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 14 13:30 docker
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 28 05:39 java
+drwxrwxr-x 7 vetrivenki vetrivenki 4096 Jan 29 08:11 devOps
+vetrivenki@vetrivenki-Lenovo:~/Venkat$ cd devOps/
+vetrivenki@vetrivenki-Lenovo:~/Venkat/devOps$ mkdir manifest.yaml
+vetrivenki@vetrivenki-Lenovo:~/Venkat/devOps$ for n in $(kubectl get -o=name pvc,configmap,serviceaccount,secret,ingress,service,deployment,statefulset,hpa,job,cronjob)
+do
+    mkdir -p $(dirname $n)
+    kubectl get -o=yaml --export $n > $n.yaml
+done
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+error: unknown flag: --export
+See 'kubectl get --help' for usage.
+vetrivenki@vetrivenki-Lenovo:~/Venkat/devOps$ ls -tlr
+total 36
+drwxrwxr-x 3 vetrivenki vetrivenki 4096 Jan 12 22:07 Terraform
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 16 14:18 Unix
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 07:53 ImportantNotes
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:29 Terminal-log
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:40 manifest.yaml
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:40 configmap
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:40 serviceaccount
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:40 service
+drwxrwxr-x 2 vetrivenki vetrivenki 4096 Jan 29 11:40 deployment.apps
+vetrivenki@vetrivenki-Lenovo:~/Venkat/devOps$cat

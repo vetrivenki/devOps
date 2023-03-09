@@ -1,0 +1,18 @@
+Pending backup
+
+vetrivenki@vetrivenki-Lenovo:/mnt$ du -sh hdd17
+178G	hdd17
+vetrivenki@vetrivenki-Lenovo:/mnt$ du -sh hdd18
+314G	hdd18
+
+
+Completed
+---------
+
+sdb6    113G ntfs     HDD1-1               /mnt/hdd16
+
+
+WDC WD15EARS-00Z5B1          sdc       1.4T                               
+                             ├─sdc1    100M ntfs     System Reserved-HDD2 /mnt/hdd21
+                             ├─sdc2  698.6G ntfs     HDD2-1               /mnt/hdd22
+                             └─sdc3  698.6G ntfs     HDD2-2               /mnt/hdd23
