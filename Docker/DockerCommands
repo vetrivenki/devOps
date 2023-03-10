@@ -1,0 +1,45 @@
+List all containers (only IDs) --- docker ps -aq
+Stop all running containers   --- docker stop $(docker ps -aq)
+Remove all containers  --- docker rm $(docker ps -aq) 
+Remove all images -- docker rmi $(docker images -q)
+
+Stop & remove containers -- docker rm $(docker stop $(docker ps -q -af ancestor=ubuntu))
+
+Filter 
+   docker ps -f name=ubuntu*
+   docker ps -af ancestor=ubuntu
+   docker ps -q -af ancestor=ubuntu
+
+docker ps -a -q --filter name=<containerName>
+
+docker ps -a -q --filter ancestor=<Image Name>
+
+docker ps --format '{{ .ID }}\t{{.Image}}\t{{ .Names }}'
+
+Docker file deployment
+-----------------------
+docker build -t <image_name> .
+
+Docker Ubuntu start
+-------------------
+Link --> https://www.techrepublic.com/article/deploy-docker-container-ssh-access/
+
+docker build -t ubuntu .
+
+
+docker run -d -P --name ubuntu_sys1 
+docker run -d -P --name ubuntu_sys2 
+
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  ubuntu_sys1
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  ubuntu_sys2
+
+docker stop ubuntu_sys1 ubuntu_sys2
+docker start ubuntu_sys1 ubuntu_sys2
+
+Push image to docker hub
+------------------------
+
+docker tag ubuntu vetri19venki/ubuntu:v1
+
+docker push vetri19venki/ubuntu:v1
+
